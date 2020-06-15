@@ -1,5 +1,5 @@
 #include "sort.h"
-#define SWAP (array[index] && array[index + 1]) && (array[index] > array[index + 1])
+#define SWAP_NEEDED ((array[index] && array[index + 1]) && (array[index] > array[index + 1]))
 
 /**
  * bubble_sort - sorts an array of integers using bubble sort algorithm
@@ -9,13 +9,14 @@
 
 void bubble_sort(int *array, size_t size)
 {
-	int index = 0, temp = 0, sorted = 0, count = 1, my_size = size;
+	int index = 0, temp = 0, sorted = 0;
+	size_t count = 1;
 
 	if (array == NULL || size < 2)
 		return;
 	while (!sorted)
 	{
-		if (SWAP)
+		if (SWAP_NEEDED)
 		{
 			temp = array[index];
 			array[index] = array[index + 1];
@@ -26,14 +27,10 @@ void bubble_sort(int *array, size_t size)
 			index++;
 		else
 		{
-			/* printf("Finished pass %d with < %d > as the bubbler\n\n", count, array[my_size - 1]); */
 			index = 0;
 			count++;
-			my_size--;
 		}
-		if (count == 1024)
+		if (count == size)
 			sorted = 1;
-		/* INT POINTER STARTS AT LAST INDEX AND MOVES BACK 1 TOWARDS 0 AFTER THAT INDEX IS SORTED */
-		/* ONCE INT POINTER HITS INDEX == 0, WE KNOW LIST IS SORTED */
 	}
 }
