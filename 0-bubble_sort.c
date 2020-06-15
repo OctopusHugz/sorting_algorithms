@@ -31,7 +31,7 @@ void bubble_sort(int *array, size_t size)
 			count++;
 			my_size--;
 		}
-		if (count == 25)
+		if (count == 1024)
 			sorted = 1;
 		/* INT POINTER STARTS AT LAST INDEX AND MOVES BACK 1 TOWARDS 0 AFTER THAT INDEX IS SORTED */
 		/* ONCE INT POINTER HITS INDEX == 0, WE KNOW LIST IS SORTED */
