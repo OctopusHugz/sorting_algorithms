@@ -1,5 +1,5 @@
 #include "sort.h"
-#define SWAP_NEEDED ((array[index] && array[index + 1]) && (array[index] > array[index + 1]))
+#define SWAP_NEEDED (array[index] > array[index + 1])
 
 /**
  * bubble_sort - sorts an array of integers using bubble sort algorithm
@@ -16,7 +16,7 @@ void bubble_sort(int *array, size_t size)
 		return;
 	while (!sorted)
 	{
-		if (SWAP_NEEDED)
+		if ((array[index] && array[index + 1]) && SWAP_NEEDED)
 		{
 			temp = array[index];
 			array[index] = array[index + 1];
