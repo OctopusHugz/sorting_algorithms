@@ -46,4 +46,6 @@ void bitonic_sort(int *array, size_t size);
 
 void quick_sort_hoare(int *array, size_t size);
 
+int check_array(int *array);
+
 #endif /* SORT_H */
