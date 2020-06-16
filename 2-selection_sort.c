@@ -25,13 +25,10 @@ void selection_sort(int *array, size_t size)
 				mindex = searcher;
 			}
 		}
-		if (array[index + 1] != '\0')
-		{
-			temp = array[index];
-			array[index] = min;
-			array[mindex] = temp;
-			print_array(array, size);
-		}
+		temp = array[index];
+		array[index] = min;
+		array[mindex] = temp;
+		print_array(array, size);
 	}
 }
 
