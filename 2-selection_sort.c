@@ -19,7 +19,7 @@ void selection_sort(int *array, size_t size)
 			return;
 		for (searcher = index, min = array[index]; array[searcher]; searcher++)
 		{
-			if (array[searcher] < min)
+			if (array[searcher] <= min)
 			{
 				min = array[searcher];
 				mindex = searcher;
