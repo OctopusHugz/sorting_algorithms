@@ -12,7 +12,7 @@ void selection_sort(int *array, size_t size)
 
 	if (array == NULL || size < 2)
 		return;
-	for (; array[index + 1]; index++)
+	for (; array[index]; index++)
 	{
 		sorted = check_array(array);
 		if (sorted)
