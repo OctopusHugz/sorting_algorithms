@@ -10,7 +10,7 @@
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *current, *temp;
-	int count = 2, sorted = 0;
+	int sorted = 0;
 
 	if (*list == NULL)
 		return;
@@ -21,28 +21,28 @@ void insertion_sort_list(listint_t **list)
 		{
 			if (current->next->n < current->n)
 			{
+				/* printf("current->n is: %d\n", current->n);
+				printf("current->next->n is: %d\n", current->next->n); */
 				temp = current->next;
+				if (temp->next)
+					temp->next->prev = current;
 				temp->prev = current->prev;
-				temp->next->prev = current;
-				current->prev->next = temp;
-				current->prev = temp;
+				if (current->prev)
+				{
+					current->prev->next = temp;
+					current->prev = temp;
+				}
+				else
+					*list = temp;
 				current->next = temp->next;
 				temp->next = current;
-				/* temp = current->next;
-				current->next = temp->next;
-				temp->next = current;
-				current->prev->next = temp;
-				temp->prev = current->prev;
-				current->prev = temp;
-				current->next->prev = current; */
 				print_list(*list);
-				break;
+				/* printf("\n\n"); */
+				current = *list;
 			}
-			current = current->next;
-			count++;
+			else
+				current = current->next;
 		}
-		if (count == 4)
-			sorted = 1;
-		/* GET NODE AT INDEX OF COUNT + 1 AS THAT'S FIRST NON SORTED NODE */
+		sorted = 1;
 	}
 }
