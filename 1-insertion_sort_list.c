@@ -19,11 +19,9 @@ void insertion_sort_list(listint_t **list)
 	{
 		while (current && current->next)
 		{
-			if (current->next->n < current->n)
+			temp = current->next;
+			if (temp->n < current->n)
 			{
-				/* printf("current->n is: %d\n", current->n);
-				printf("current->next->n is: %d\n", current->next->n); */
-				temp = current->next;
 				if (temp->next)
 					temp->next->prev = current;
 				temp->prev = current->prev;
@@ -33,11 +31,13 @@ void insertion_sort_list(listint_t **list)
 					current->prev = temp;
 				}
 				else
+				{
+					current->prev = temp;
 					*list = temp;
+				}
 				current->next = temp->next;
 				temp->next = current;
 				print_list(*list);
-				/* printf("\n\n"); */
 				current = *list;
 			}
 			else
