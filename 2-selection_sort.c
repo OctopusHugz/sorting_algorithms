@@ -25,18 +25,11 @@ void selection_sort(int *array, size_t size)
 				mindex = searcher;
 			}
 		}
-		/* printf("index is: %d\n", index);
-		printf("array[index] is: %d\n", array[index]); */
 		temp = array[index];
 		array[index] = min;
 		array[mindex] = temp;
-		/* printf("min is: %d\n", min);
-		printf("mindex is: %d\n", mindex);
-		printf("array[index] after swap is: %d\n", array[index]);
-		printf("array[mindex] after swap is: %d\n", array[mindex]); */
 		if (array[index] != array[mindex])
 			print_array(array, size);
-		/* printf("\n\n"); */
 	}
 }
 
