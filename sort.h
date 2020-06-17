@@ -48,4 +48,6 @@ void quick_sort_hoare(int *array, size_t size);
 
 int check_array(int *array);
 
+int partition(int *array, int start, int end);
+
 #endif /* SORT_H */
